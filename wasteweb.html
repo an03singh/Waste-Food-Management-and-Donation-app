@@ -2,59 +2,192 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FoodLink - Food Donation Platform</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/feather-icons"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surplus Food Connect</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+      color: #333;
+    }
+
+    .main {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left {
+      flex: 1;
+      background: url('https://cdn.pixabay.com/photo/2017/06/02/18/24/food-2360403_1280.jpg') center/cover no-repeat;
+      padding: 50px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .left h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      width: fit-content;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+    }
+
+    .donate { background-color: #28a745; }
+    .request { background-color: #ffc107; color: #333; }
+    .report { background-color: #dc3545; }
+
+    .right {
+      flex: 0.8;
+      background-color: #fff;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-box {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .auth-box h2 {
+      margin-bottom: 20px;
+      color: #28a745;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .auth-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .auth-button:hover {
+      background-color: #0056b3;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .switch a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        flex: none;
+        width: 100%;
+        padding: 30px;
+      }
+
+      .left {
+        background-position: center;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-  <div class="min-h-screen p-4 md:p-8">
-    <header class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-green-700">FoodLink</h1>
-      <p class="text-gray-600 mt-2 text-lg">Connecting surplus food to those in need.</p>
-    </header>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- Donate Food -->
-      <div class="bg-white rounded-2xl shadow-md p-6">
-        <i data-feather="utensils" class="text-green-600 mb-4"></i>
-        <h2 class="text-xl font-semibold mb-2">Donate Food</h2>
-        <input type="text" placeholder="Your Name" class="w-full p-2 mb-2 border rounded" />
-        <input type="text" placeholder="Food Type (Cooked/Uncooked)" class="w-full p-2 mb-2 border rounded" />
-        <input type="text" placeholder="Quantity" class="w-full p-2 mb-2 border rounded" />
-        <input type="text" placeholder="Pickup Location" class="w-full p-2 mb-2 border rounded" />
-        <button class="w-full mt-2 bg-green-600 text-white py-2 rounded">Submit</button>
-      </div>
-
-      <!-- Report Needy Person -->
-      <div class="bg-white rounded-2xl shadow-md p-6">
-        <i data-feather="map-pin" class="text-red-500 mb-4"></i>
-        <h2 class="text-xl font-semibold mb-2">Report Needy Person</h2>
-        <input type="text" placeholder="Your Name (Optional)" class="w-full p-2 mb-2 border rounded" />
-        <input type="text" placeholder="Location of Person" class="w-full p-2 mb-2 border rounded" />
-        <textarea placeholder="Description (e.g. elderly, child, etc.)" class="w-full p-2 mb-2 border rounded"></textarea>
-        <button class="w-full mt-2 border border-red-500 text-red-500 py-2 rounded">Report</button>
-      </div>
-
-      <!-- Join as NGO/Volunteer -->
-      <div class="bg-white rounded-2xl shadow-md p-6">
-        <i data-feather="heart" class="text-yellow-500 mb-4"></i>
-        <h2 class="text-xl font-semibold mb-2">Join as NGO/Volunteer</h2>
-        <input type="text" placeholder="Organization/Name" class="w-full p-2 mb-2 border rounded" />
-        <input type="email" placeholder="Email" class="w-full p-2 mb-2 border rounded" />
-        <input type="text" placeholder="Location" class="w-full p-2 mb-2 border rounded" />
-        <button class="w-full mt-2 bg-yellow-500 text-white py-2 rounded">Register</button>
+<body>
+  <div class="main">
+    <!-- Left: Info Section -->
+    <div class="left">
+      <h1>Surplus Food Connect</h1>
+      <p>
+        Join us in the fight against hunger and food waste. Our platform connects surplus food from households, events, restaurants, and stores with NGOs, shelters, and individuals in need. Anyone can report a hungry individual and help connect them to resources.
+      </p>
+      <div class="buttons">
+        <a href="donar2.html" class="button donate"><i class="fas fa-hand-holding-heart"></i> Donate Food</a>
+        <a href="request.html" class="button request"><i class="fas fa-box-open"></i> Request Food</a>
+        <a href="report.html" class="button report"><i class="fas fa-exclamation-circle"></i> Report Hunger</a>
       </div>
     </div>
 
-    <footer class="mt-12 text-center text-sm text-gray-500">
-      &copy; <span id="year"></span> FoodLink. All rights reserved.
-    </footer>
-  </div>
+    <!-- Right: Auth Section -->
+    <div class="right">
+      <div class="auth-box">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button class="auth-button">Login</button>
 
-  <script>
-    feather.replace();
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+        <div class="switch">
+          <p>Don't have an account? <a href="#">Sign up here</a></p>
+        </div>
+
+        <hr style="margin: 30px 0;"/>
+
+        <h2>Signup</h2>
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button class="auth-button">Sign Up</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

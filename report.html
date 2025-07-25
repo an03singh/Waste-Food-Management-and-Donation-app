@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report a Hungry Person</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #fff3cd, #f8d7da);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #dc3545;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1em;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #c82333;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Report a Hungry Person</h1>
+    <form>
+      <label for="name">Name (if known)</label>
+      <input type="text" id="name" name="name" placeholder="Leave blank if unknown">
+
+      <label for="location">Location / Landmark</label>
+      <input type="text" id="location" name="location" placeholder="Street, Area, City">
+
+      <label for="type">Person Type</label>
+      <select id="type" name="type">
+        <option value="">-- Select --</option>
+        <option value="child">Child</option>
+        <option value="elderly">Elderly</option>
+        <option value="homeless">Homeless</option>
+        <option value="family">Family</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="details">Additional Details</label>
+      <textarea id="details" name="details" rows="4" placeholder="Condition, clothes, how long they've been there, etc."></textarea>
+
+      <label for="photo">Upload a Photo (optional)</label>
+      <input type="file" id="photo" name="photo" accept="image/*">
+
+      <button type="submit" class="submit-btn">Submit Report</button>
+    </form>
+
+    <div class="back-link">
+      <p><a href="index.html">← Back to Home</a></p>
+    </div>
+  </div>
+</body>
+</html>

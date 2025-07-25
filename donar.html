@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Donation Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    .intro-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .intro-section h1 {
+      font-size: 2em;
+      color: #2f855a;
+    }
+    .intro-section p {
+      font-size: 1.1em;
+      color: #555;
+    }
+    .form-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background-color: #38a169;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .form-btn:hover {
+      background-color: #2f855a;
+    }
+    form {
+      display: none;
+      margin-top: 20px;
+    }
+    form div {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .submit-btn {
+      background-color: #38a169;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #2f855a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Intro Section -->
+    <div class="intro-section">
+      <h1>Got Extra Food? Let’s Feed Someone in Need.</h1>
+      <p>Your donation can help reduce hunger and prevent food waste. Fill the form below and we’ll take care of the rest.</p>
+      <button class="form-btn" onclick="showForm()">Fill Out the Form</button>
+    </div>
+
+    <!-- Donation Form -->
+    <form id="donationForm" onsubmit="submitForm(event)">
+      <div>
+        <label for="donorName">Donor Name</label>
+        <input type="text" id="donorName" name="donorName" required />
+      </div>
+      <div>
+        <label for="contact">Contact Information</label>
+        <input type="text" id="contact" name="contact" required />
+      </div>
+      <div>
+        <label for="address">Pickup Address</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+      <div>
+        <label for="foodType">Type of Food</label>
+        <input type="text" id="foodType" name="foodType" required />
+      </div>
+      <div>
+        <label for="quantity">Quantity (approximate)</label>
+        <input type="text" id="quantity" name="quantity" required />
+      </div>
+      <div>
+        <label for="pickupTime">Preferred Pickup Time</label>
+        <input type="time" id="pickupTime" name="pickupTime" />
+      </div>
+      <div>
+        <label for="instructions">Special Instructions</label>
+        <textarea id="instructions" name="instructions"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Donation</button>
+    </form>
+  </div>
+
+  <script>
+    function showForm() {
+      const form = document.getElementById('donationForm');
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const data = {
+        donorName: document.getElementById("donorName").value,
+        contact: document.getElementById("contact").value,
+        address: document.getElementById("address").value,
+        foodType: document.getElementById("foodType").value,
+        quantity: document.getElementById("quantity").value,
+        pickupTime: document.getElementById("pickupTime").value,
+        instructions: document.getElementById("instructions").value
+      };
+      console.log("Form submitted:", data);
+      alert("Thank you for your donation! We'll contact you shortly.");
+      document.getElementById("donationForm").reset();
+    }
+  </script>
+</body>
+</html>
